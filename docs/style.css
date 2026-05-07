@@ -584,6 +584,42 @@ select#metric-select:focus { outline: 2px solid var(--cyan); outline-offset: 2px
 }
 .kv li:last-child { border-bottom: none; }
 .kv strong { font-family: var(--font-mono); color: var(--text); font-weight: 500; }
+.data-downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+.dl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.04);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.dl:hover {
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.dl-icon {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+.dl-text { display: flex; flex-direction: column; min-width: 0; }
+.dl-text strong { font-size: 0.92rem; font-weight: 600; }
+.dl-text small { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
 .rules { margin: 0; padding-left: 20px; color: var(--text-dim); }
 .rules li { margin-bottom: 10px; font-size: 0.93rem; }
 .rules strong { color: var(--text); font-weight: 600; }
