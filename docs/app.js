@@ -43,6 +43,48 @@
     "not_flat_pct",
   ];
 
+  // ---------- bar label plugin ----------
+  // Draws the numeric value above each bar so 0% is visible (a 0-height bar
+  // is otherwise invisible) and so cohorts with insufficient data are clearly
+  // labeled "n<5" instead of looking identical to a 0% bar.
+  const barLabelPlugin = {
+    id: "barLabel",
+    afterDatasetsDraw(chart, _args, opts) {
+      if (!opts || !opts.enabled) return;
+      const { ctx } = chart;
+      chart.data.datasets.forEach((ds, i) => {
+        const meta = chart.getDatasetMeta(i);
+        meta.data.forEach((bar, j) => {
+          const value = ds.data[j];
+          if (value === undefined) return;
+          ctx.save();
+          ctx.font = "600 10px ui-monospace, JetBrains Mono, SFMono-Regular, monospace";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "bottom";
+          let label, color;
+          if (value === null) {
+            label = "n<5";
+            color = COLORS.textMuted;
+          } else if (value === 0) {
+            label = "0%";
+            color = COLORS.green;
+          } else {
+            label = `${value.toFixed(1)}%`;
+            color = ds.backgroundColor || COLORS.text;
+            // remove alpha suffix if present (e.g. "#22d3eecc")
+            if (typeof color === "string" && color.length === 9) color = color.slice(0, 7);
+          }
+          const x = bar.x;
+          // for null/0 use the chart's bottom (base of the bar)
+          const y = value == null || value === 0 ? bar.base : bar.y;
+          ctx.fillStyle = color;
+          ctx.fillText(label, x, y - 4);
+          ctx.restore();
+        });
+      });
+    },
+  };
+
   // ---------- helpers ----------
   function fmt(v) {
     if (v == null || Number.isNaN(v)) return "—";
@@ -109,6 +151,7 @@
     } else {
       Chart.defaults.font.family = "Inter, system-ui, sans-serif";
       Chart.defaults.color = COLORS.textDim;
+      Chart.register(barLabelPlugin);
       renderHeadline(stats);
       renderCohort(stats);
       renderFolds(stats);
@@ -178,7 +221,9 @@
         datasets: datasets,
       },
       options: defaultChartOpts({
+        layout: { padding: { top: 22 } },
         plugins: {
+          barLabel: { enabled: true },
           tooltip: {
             callbacks: {
               label: (ctx) => `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}`,
@@ -234,7 +279,9 @@
       type: "bar",
       data: { labels: cohorts, datasets: initial.datasets },
       options: defaultChartOpts({
+        layout: { padding: { top: 22 } },
         plugins: {
+          barLabel: { enabled: true },
           legend: {
             display: true,
             position: "top",
