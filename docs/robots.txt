@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://macusercom.github.io/z-fold-longevity-study/sitemap.xml

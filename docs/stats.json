@@ -1,0 +1,512 @@
+{
+  "meta": {
+    "study_year": 2026,
+    "raw_n": 745,
+    "cleaned_n": 527,
+    "exclusions": {
+      "not_factory_new": 121,
+      "impossible_outer_protector": 91,
+      "non_main_device": 18,
+      "outer_break_likely_misread": 10,
+      "device_age_impossible": 1
+    },
+    "device_order": [
+      "Z Fold 1",
+      "Z Fold 2",
+      "Z Fold 3",
+      "Z Fold 4",
+      "Z Fold 5",
+      "Z Fold 6",
+      "Z Fold 7"
+    ],
+    "age_order": [
+      "0–6 months",
+      "7–12 months",
+      "13–18 months",
+      "19–24 months",
+      "Over 24 months",
+      "25–36 months (2–3 years)",
+      "37–48 months (3–4 years)",
+      "49-60 months (4–5 years)"
+    ],
+    "age_label_short": {
+      "0–6 months": "0–6 mo",
+      "7–12 months": "7–12 mo",
+      "13–18 months": "13–18 mo",
+      "19–24 months": "19–24 mo",
+      "Over 24 months": "24+ mo",
+      "25–36 months (2–3 years)": "2–3 yr",
+      "37–48 months (3–4 years)": "3–4 yr",
+      "49-60 months (4–5 years)": "4–5 yr"
+    }
+  },
+  "distributions": {
+    "device": {
+      "Z Fold 5": 208,
+      "Z Fold 4": 140,
+      "Z Fold 3": 37,
+      "Z Fold 1": 2,
+      "Z Fold 2": 6,
+      "Z Fold 6": 74,
+      "Z Fold 7": 60
+    },
+    "age": {
+      "7–12 months": 182,
+      "13–18 months": 77,
+      "0–6 months": 119,
+      "19–24 months": 84,
+      "Over 24 months": 48,
+      "25–36 months (2–3 years)": 11,
+      "37–48 months (3–4 years)": 3,
+      "49-60 months (4–5 years)": 3
+    },
+    "condition_raw": {
+      "Refurbished": 45,
+      "Factory new": 624,
+      "Used": 64,
+      "": 9,
+      "Damaged/broken": 3
+    },
+    "outer_sp": {
+      "3rd party": 276,
+      "None": 197,
+      "A purchased Samsung Official Screen Protector": 54
+    },
+    "inner_sp": {
+      "Default factory one that is pre-applied": 336,
+      "Samsung official replacement (e. g. at a Service Centre)": 43,
+      "3rd party": 55,
+      "None": 93
+    },
+    "rma": {
+      "No": 432,
+      "Yes, 1x": 74,
+      "Yes, 3x": 1,
+      "Yes, 2x": 18,
+      "Yes, more than 3x": 2
+    },
+    "flat": {
+      "Yes": 428,
+      "No, 1–20° are missing to be flat": 91,
+      "No, 21–45° are missing to be flat": 7,
+      "No, more than 45° are missing to be flat": 1
+    },
+    "peeling": {
+      "No": 327,
+      "Yes, after 13–18 months": 60,
+      "Yes, after 0–6 months": 35,
+      "Yes, after 7–12 months": 87,
+      "Yes, after 19–24 months": 15,
+      "Yes, after more than 24 months": 2,
+      "Yes, after 25–36 months (2–3 years)": 1
+    },
+    "cracks": {
+      "No": 457,
+      "Yes, since 0–6 months": 15,
+      "Yes, since 7–12 months": 16,
+      "Yes, since 19–24 months": 12,
+      "Yes, since 13–18 months": 21,
+      "Yes, since more than 24 months": 3,
+      "Yes, after 49–60 months (4–5 years)": 2,
+      "Yes, after 25–36 months (2–3 years)": 1
+    },
+    "surface": {
+      "Completely fine": 392,
+      "Small scratches, only visible under a certain light": 118,
+      "Larger scratches, always visible": 5,
+      "Small scratches, always visible": 12
+    },
+    "usage": {
+      "3": 81,
+      "6": 42,
+      "4": 63,
+      "2": 33,
+      "7": 112,
+      "8": 71,
+      "10": 8,
+      "5": 81,
+      "9": 27,
+      "1": 9
+    },
+    "fold_freq": {
+      "More than 20 times a day": 100,
+      "0–5 times": 98,
+      "6–10 times": 155,
+      "11–15 times": 105,
+      "16–20 times": 69
+    }
+  },
+  "headline": {
+    "screen_opens_fully_pct": 81.21,
+    "inner_screen_break_pct": 13.09,
+    "default_protector_peeled_pct": 37.95,
+    "micro_cracks_pct": 13.28,
+    "rma_any_pct": 18.03
+  },
+  "per_device": {
+    "Z Fold 1": {
+      "n": 2,
+      "rma_pct": 50.0,
+      "not_flat_pct": 0.0,
+      "inner_break_pct": 50.0,
+      "default_protector_peeled_pct": 0.0,
+      "micro_cracks_pct": 50.0,
+      "screen_usage_avg": 9.0,
+      "folds_per_day_avg": 15.0
+    },
+    "Z Fold 2": {
+      "n": 6,
+      "rma_pct": 0.0,
+      "not_flat_pct": 100.0,
+      "inner_break_pct": 16.67,
+      "default_protector_peeled_pct": 100.0,
+      "micro_cracks_pct": 100.0,
+      "screen_usage_avg": 6.5,
+      "folds_per_day_avg": 20.0
+    },
+    "Z Fold 3": {
+      "n": 37,
+      "rma_pct": 27.03,
+      "not_flat_pct": 43.24,
+      "inner_break_pct": 32.43,
+      "default_protector_peeled_pct": 91.89,
+      "micro_cracks_pct": 48.65,
+      "screen_usage_avg": 5.46,
+      "folds_per_day_avg": 12.0
+    },
+    "Z Fold 4": {
+      "n": 140,
+      "rma_pct": 47.14,
+      "not_flat_pct": 32.86,
+      "inner_break_pct": 27.86,
+      "default_protector_peeled_pct": 80.0,
+      "micro_cracks_pct": 19.29,
+      "screen_usage_avg": 5.44,
+      "folds_per_day_avg": 11.8
+    },
+    "Z Fold 5": {
+      "n": 208,
+      "rma_pct": 5.29,
+      "not_flat_pct": 0.48,
+      "inner_break_pct": 4.81,
+      "default_protector_peeled_pct": 17.79,
+      "micro_cracks_pct": 6.25,
+      "screen_usage_avg": 5.42,
+      "folds_per_day_avg": 12.1
+    },
+    "Z Fold 6": {
+      "n": 74,
+      "rma_pct": 6.76,
+      "not_flat_pct": 20.27,
+      "inner_break_pct": 6.76,
+      "default_protector_peeled_pct": 14.86,
+      "micro_cracks_pct": 6.76,
+      "screen_usage_avg": 5.66,
+      "folds_per_day_avg": 11.7
+    },
+    "Z Fold 7": {
+      "n": 60,
+      "rma_pct": 3.33,
+      "not_flat_pct": 25.0,
+      "inner_break_pct": 1.67,
+      "default_protector_peeled_pct": 0.0,
+      "micro_cracks_pct": 0.0,
+      "screen_usage_avg": 5.6,
+      "folds_per_day_avg": 11.0
+    }
+  },
+  "cohort_stats": {
+    "Z Fold 1": {
+      "Year 1": {
+        "n": 1
+      },
+      "Year 2": {
+        "n": 0
+      },
+      "Beyond Year 2": {
+        "n": 1
+      }
+    },
+    "Z Fold 2": {
+      "Year 1": {
+        "n": 0
+      },
+      "Year 2": {
+        "n": 0
+      },
+      "Beyond Year 2": {
+        "n": 6,
+        "rma_pct": 0.0,
+        "not_flat_pct": 100.0,
+        "inner_break_pct": 16.67,
+        "default_protector_peeled_pct": 100.0,
+        "micro_cracks_pct": 100.0
+      }
+    },
+    "Z Fold 3": {
+      "Year 1": {
+        "n": 1
+      },
+      "Year 2": {
+        "n": 9,
+        "rma_pct": 33.33,
+        "not_flat_pct": 44.44,
+        "inner_break_pct": 33.33,
+        "default_protector_peeled_pct": 88.89,
+        "micro_cracks_pct": 44.44
+      },
+      "Beyond Year 2": {
+        "n": 27,
+        "rma_pct": 22.22,
+        "not_flat_pct": 44.44,
+        "inner_break_pct": 29.63,
+        "default_protector_peeled_pct": 92.59,
+        "micro_cracks_pct": 48.15
+      }
+    },
+    "Z Fold 4": {
+      "Year 1": {
+        "n": 20,
+        "rma_pct": 40.0,
+        "not_flat_pct": 30.0,
+        "inner_break_pct": 30.0,
+        "default_protector_peeled_pct": 70.0,
+        "micro_cracks_pct": 20.0
+      },
+      "Year 2": {
+        "n": 102,
+        "rma_pct": 48.04,
+        "not_flat_pct": 34.31,
+        "inner_break_pct": 28.43,
+        "default_protector_peeled_pct": 82.35,
+        "micro_cracks_pct": 19.61
+      },
+      "Beyond Year 2": {
+        "n": 18,
+        "rma_pct": 50.0,
+        "not_flat_pct": 27.78,
+        "inner_break_pct": 22.22,
+        "default_protector_peeled_pct": 77.78,
+        "micro_cracks_pct": 16.67
+      }
+    },
+    "Z Fold 5": {
+      "Year 1": {
+        "n": 162,
+        "rma_pct": 4.32,
+        "not_flat_pct": 0.62,
+        "inner_break_pct": 4.94,
+        "default_protector_peeled_pct": 2.47,
+        "micro_cracks_pct": 4.32
+      },
+      "Year 2": {
+        "n": 33,
+        "rma_pct": 9.09,
+        "not_flat_pct": 0.0,
+        "inner_break_pct": 3.03,
+        "default_protector_peeled_pct": 69.7,
+        "micro_cracks_pct": 12.12
+      },
+      "Beyond Year 2": {
+        "n": 13,
+        "rma_pct": 7.69,
+        "not_flat_pct": 0.0,
+        "inner_break_pct": 7.69,
+        "default_protector_peeled_pct": 76.92,
+        "micro_cracks_pct": 15.38
+      }
+    },
+    "Z Fold 6": {
+      "Year 1": {
+        "n": 57,
+        "rma_pct": 3.51,
+        "not_flat_pct": 21.05,
+        "inner_break_pct": 3.51,
+        "default_protector_peeled_pct": 1.75,
+        "micro_cracks_pct": 3.51
+      },
+      "Year 2": {
+        "n": 17,
+        "rma_pct": 17.65,
+        "not_flat_pct": 17.65,
+        "inner_break_pct": 17.65,
+        "default_protector_peeled_pct": 58.82,
+        "micro_cracks_pct": 17.65
+      },
+      "Beyond Year 2": {
+        "n": 0
+      }
+    },
+    "Z Fold 7": {
+      "Year 1": {
+        "n": 60,
+        "rma_pct": 3.33,
+        "not_flat_pct": 25.0,
+        "inner_break_pct": 1.67,
+        "default_protector_peeled_pct": 0.0,
+        "micro_cracks_pct": 0.0
+      },
+      "Year 2": {
+        "n": 0
+      },
+      "Beyond Year 2": {
+        "n": 0
+      }
+    }
+  },
+  "sp_impact": {
+    "Default factory (pre-applied)": {
+      "n": 336,
+      "rma_pct": 16.37,
+      "inner_break_pct": 11.61,
+      "micro_cracks_pct": 8.93
+    },
+    "None": {
+      "n": 93,
+      "rma_pct": 13.98,
+      "inner_break_pct": 12.9,
+      "micro_cracks_pct": 23.66
+    },
+    "3rd party": {
+      "n": 55,
+      "rma_pct": 20.0,
+      "inner_break_pct": 16.36,
+      "micro_cracks_pct": 20.0
+    },
+    "Samsung official replacement": {
+      "n": 43,
+      "rma_pct": 37.21,
+      "inner_break_pct": 20.93,
+      "micro_cracks_pct": 16.28
+    }
+  },
+  "peel_outcomes": {
+    "rma_when_peeling": 56.45,
+    "rma_when_no_peeling": 7.3,
+    "cracks_when_peeling": 32.26,
+    "cracks_when_no_peeling": 3.65,
+    "break_when_peeling": 40.32,
+    "break_when_no_peeling": 5.11,
+    "n_peeling": 62,
+    "n_no_peeling": 274
+  },
+  "flat_vs_cracks": {
+    "n_flat": 428,
+    "cracks_when_flat": 9.81,
+    "n_not_flat": 99,
+    "cracks_when_not_flat": 28.28
+  },
+  "cracks_vs_break": {
+    "n_with_cracks": 70,
+    "break_when_cracks": 42.86,
+    "n_no_cracks": 457,
+    "break_when_no_cracks": 8.53
+  },
+  "fold_habit": {
+    "0–5 times": {
+      "n": 98,
+      "rma_pct": 15.31,
+      "micro_cracks_pct": 13.27,
+      "inner_break_pct": 12.24
+    },
+    "6–10 times": {
+      "n": 155,
+      "rma_pct": 14.84,
+      "micro_cracks_pct": 10.97,
+      "inner_break_pct": 13.55
+    },
+    "11–15 times": {
+      "n": 105,
+      "rma_pct": 19.05,
+      "micro_cracks_pct": 11.43,
+      "inner_break_pct": 11.43
+    },
+    "16–20 times": {
+      "n": 69,
+      "rma_pct": 26.09,
+      "micro_cracks_pct": 23.19,
+      "inner_break_pct": 20.29
+    },
+    "More than 20 times a day": {
+      "n": 100,
+      "rma_pct": 19.0,
+      "micro_cracks_pct": 12.0,
+      "inner_break_pct": 10.0
+    }
+  },
+  "usage_durability": {
+    "Mostly inner (1–3)": {
+      "n": 123,
+      "rma_pct": 20.33,
+      "micro_cracks_pct": 10.57,
+      "inner_break_pct": 13.01
+    },
+    "Balanced (4–7)": {
+      "n": 298,
+      "rma_pct": 18.12,
+      "micro_cracks_pct": 12.75,
+      "inner_break_pct": 14.77
+    },
+    "Mostly outer (8–10)": {
+      "n": 106,
+      "rma_pct": 15.09,
+      "micro_cracks_pct": 17.92,
+      "inner_break_pct": 8.49
+    }
+  },
+  "break_timing_pct": {
+    "Yes, after 7–12 months": 4.93,
+    "Yes, after 0–6 months": 2.85,
+    "Yes, after more than 24 months": 0.38,
+    "Yes, after 13–18 months": 2.66,
+    "Yes, after 19–24 months": 1.9,
+    "Yes, but at fault of my own": 1.14,
+    "Yes, after 37-48 months (3–4 years)": 0.19,
+    "Yes, after 25–36 months (2–3 years)": 0.19,
+    "No": 85.77
+  },
+  "surface_by_age": {
+    "0–6 months": {
+      "n": 119,
+      "Completely fine": 81.51,
+      "Small scratches, only visible under a certain light": 16.81,
+      "Small scratches, always visible": 1.68,
+      "Larger scratches, always visible": 0.0
+    },
+    "7–12 months": {
+      "n": 182,
+      "Completely fine": 78.57,
+      "Small scratches, only visible under a certain light": 19.23,
+      "Small scratches, always visible": 1.65,
+      "Larger scratches, always visible": 0.55
+    },
+    "13–18 months": {
+      "n": 77,
+      "Completely fine": 75.32,
+      "Small scratches, only visible under a certain light": 22.08,
+      "Small scratches, always visible": 1.3,
+      "Larger scratches, always visible": 1.3
+    },
+    "19–24 months": {
+      "n": 84,
+      "Completely fine": 63.1,
+      "Small scratches, only visible under a certain light": 32.14,
+      "Small scratches, always visible": 3.57,
+      "Larger scratches, always visible": 1.19
+    },
+    "Over 24 months": {
+      "n": 48,
+      "Completely fine": 60.42,
+      "Small scratches, only visible under a certain light": 29.17,
+      "Small scratches, always visible": 6.25,
+      "Larger scratches, always visible": 4.17
+    },
+    "25–36 months (2–3 years)": {
+      "n": 11,
+      "Completely fine": 72.73,
+      "Small scratches, only visible under a certain light": 27.27,
+      "Small scratches, always visible": 0.0,
+      "Larger scratches, always visible": 0.0
+    }
+  }
+}
