@@ -65,11 +65,8 @@
           if (value === null) {
             label = "n<5";
             color = COLORS.textMuted;
-          } else if (value === 0) {
-            label = "0%";
-            color = COLORS.green;
           } else {
-            label = `${value.toFixed(1)}%`;
+            label = value === 0 ? "0%" : `${value.toFixed(1)}%`;
             color = ds.backgroundColor || COLORS.text;
             // remove alpha suffix if present (e.g. "#22d3eecc")
             if (typeof color === "string" && color.length === 9) color = color.slice(0, 7);
