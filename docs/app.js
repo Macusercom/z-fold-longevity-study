@@ -54,6 +54,7 @@
       const { ctx } = chart;
       chart.data.datasets.forEach((ds, i) => {
         const meta = chart.getDatasetMeta(i);
+        if (meta.hidden) return;
         meta.data.forEach((bar, j) => {
           const value = ds.data[j];
           if (value === undefined) return;
@@ -219,6 +220,7 @@
       },
       options: defaultChartOpts({
         layout: { padding: { top: 22 } },
+        interaction: { mode: "nearest", axis: "x", intersect: false },
         plugins: {
           barLabel: { enabled: true },
           tooltip: {
@@ -277,6 +279,7 @@
       data: { labels: cohorts, datasets: initial.datasets },
       options: defaultChartOpts({
         layout: { padding: { top: 22 } },
+        interaction: { mode: "nearest", axis: "x", intersect: false },
         plugins: {
           barLabel: { enabled: true },
           legend: {

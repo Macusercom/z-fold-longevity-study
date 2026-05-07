@@ -64,8 +64,8 @@ docs/                                       Static site (GitHub Pages root)
 
 ## Prior studies
 
-- [2024 results on r/GalaxyFold](https://old.reddit.com/r/GalaxyFold/comments/1c7vflv/results_study_about_the_z_fold_series/)
-- 2025 follow-up — community thread on r/GalaxyFold
+- [2024 results on r/GalaxyFold](https://www.reddit.com/r/GalaxyFold/comments/1c7vflv/results_study_about_the_z_fold_series/)
+- [2025 results on r/GalaxyFold](https://www.reddit.com/r/GalaxyFold/comments/1jrzlyb/results_study_about_the_z_fold_series_2025_edition/)
 
 ## License
 
