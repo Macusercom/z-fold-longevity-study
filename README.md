@@ -4,6 +4,8 @@ A community-sourced reliability study of every Samsung Galaxy Z Fold generation,
 
 **Live site:** https://macusercom.github.io/z-fold-longevity-study/
 
+[![Z Fold Longevity Study — 2026 hero](docs/screenshot.png)](https://macusercom.github.io/z-fold-longevity-study/)
+
 This is the third annual edition of the study (2024 / 2025 / 2026). The 2026 dataset has **745 raw responses** from 745 owners. After applying the agreed filtering rules, **527 responses** are used for the per-generation analysis.
 
 ## What's in the report
