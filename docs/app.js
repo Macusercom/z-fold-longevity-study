@@ -64,8 +64,14 @@
           ctx.textBaseline = "bottom";
           let label, color;
           if (value === null) {
-            label = "n<5";
-            color = COLORS.textMuted;
+            const status = ds.cohortStatus ? ds.cohortStatus[j] : null;
+            if (status === "not_yet") {
+              label = "—";
+              color = "#3a3a4d";
+            } else {
+              label = "n<5";
+              color = COLORS.textMuted;
+            }
           } else {
             label = value === 0 ? "0%" : `${value.toFixed(1)}%`;
             color = ds.backgroundColor || COLORS.text;
@@ -255,13 +261,31 @@
     const gens = ["Z Fold 3", "Z Fold 4", "Z Fold 5", "Z Fold 6", "Z Fold 7"];
     const cohorts = ["Year 1", "Year 2", "Beyond Year 2"];
 
+    // Which cohorts are even possible for each generation as of May 2026,
+    // based on the device's launch date. Anything outside this is "not yet"
+    // and shouldn't be conflated with "n<5" (= possible but too few responses).
+    const COHORT_POSSIBLE = {
+      "Z Fold 7": ["Year 1"],                                   // launched Jul 2025
+      "Z Fold 6": ["Year 1", "Year 2"],                         // launched Jul 2024
+      "Z Fold 5": ["Year 1", "Year 2", "Beyond Year 2"],        // launched Jul 2023
+      "Z Fold 4": ["Year 1", "Year 2", "Beyond Year 2"],
+      "Z Fold 3": ["Year 1", "Year 2", "Beyond Year 2"],
+    };
+
     const build = (metric) => {
       const datasets = gens.map((g) => ({
         label: g,
         data: cohorts.map((c) => {
+          if (!COHORT_POSSIBLE[g].includes(c)) return null;
           const stat = stats.cohort_stats[g] && stats.cohort_stats[g][c];
           if (!stat || stat.n < 5) return null;
           return stat[metric] ?? null;
+        }),
+        cohortStatus: cohorts.map((c) => {
+          if (!COHORT_POSSIBLE[g].includes(c)) return "not_yet";
+          const stat = stats.cohort_stats[g] && stats.cohort_stats[g][c];
+          if (!stat || stat.n < 5) return "low_sample";
+          return null;
         }),
         sampleSizes: cohorts.map((c) => {
           const s = stats.cohort_stats[g] && stats.cohort_stats[g][c];
@@ -299,6 +323,10 @@
             callbacks: {
               label: (ctx) => {
                 const n = ctx.dataset.sampleSizes ? ctx.dataset.sampleSizes[ctx.dataIndex] : 0;
+                const status = ctx.dataset.cohortStatus ? ctx.dataset.cohortStatus[ctx.dataIndex] : null;
+                if (status === "not_yet") {
+                  return `${ctx.dataset.label}: not yet — device too young for this cohort`;
+                }
                 if (ctx.parsed.y == null) return `${ctx.dataset.label}: too few responses (n=${n})`;
                 return `${ctx.dataset.label}: ${fmt(ctx.parsed.y)} (n=${n})`;
               },
@@ -314,7 +342,7 @@
       cohortChart.update();
       const note = document.getElementById("cohort-note");
       if (note) {
-        note.textContent = `Metric: ${METRIC_LABELS[select.value]}. Empty bars mean the cohort doesn't exist yet (e.g. there are no Fold 7 owners with the device for more than a year in May 2026) or has fewer than 5 responses.`;
+        note.textContent = `Metric: ${METRIC_LABELS[select.value]}. "—" means the cohort doesn't exist yet (e.g. Fold 7 in Year 2 — the device launched in July 2025). "n<5" means the cohort exists but has fewer than 5 responses.`;
       }
     });
   }
@@ -542,9 +570,9 @@
                 <span class="m-label">Not flat</span>
                 <span class="m-value">${fmt(d.not_flat_pct)}</span>
               </div>
-              <div class="gen-metric">
-                <span class="m-label">Folds/day · usage</span>
-                <span class="m-value">${d.folds_per_day_avg ?? "—"} · ${d.screen_usage_avg ?? "—"}</span>
+              <div class="gen-metric" title="Avg folds per day · self-reported screen mix on a 1–10 scale (1 = mostly inner display, 10 = mostly outer display)">
+                <span class="m-label">Folds/day · outer lean</span>
+                <span class="m-value">${d.folds_per_day_avg ?? "—"} · ${d.screen_usage_avg != null ? d.screen_usage_avg + "/10" : "—"}</span>
               </div>
             </div>
           </article>
