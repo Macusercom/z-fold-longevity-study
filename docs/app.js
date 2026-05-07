@@ -125,6 +125,7 @@
             callback: (v) => `${v}%`,
           },
           beginAtZero: true,
+          grace: "15%",
         },
       },
     };
