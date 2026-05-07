@@ -575,9 +575,13 @@
                 <span class="m-label">Folds / day</span>
                 <span class="m-value">${d.folds_per_day_avg ?? "—"}</span>
               </div>
-              <div class="gen-metric" title="Self-reported scale: 1 = mostly inner (large) display, 10 = mostly outer (small) display">
-                <span class="m-label">Inner ↔ outer screen</span>
-                <span class="m-value">${d.screen_usage_avg != null ? d.screen_usage_avg + "/10" : "—"}</span>
+              <div class="gen-metric" title="Inner / outer display use, derived from the 1–10 self-rating (1 = inner only, 10 = outer only)">
+                <span class="m-label">Inner / outer use</span>
+                <span class="m-value">${
+                  d.screen_usage_avg != null
+                    ? `${Math.round((10 - d.screen_usage_avg) / 9 * 100)}% / ${Math.round((d.screen_usage_avg - 1) / 9 * 100)}%`
+                    : "—"
+                }</span>
               </div>
             </div>
           </article>
