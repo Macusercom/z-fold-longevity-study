@@ -66,8 +66,9 @@
           if (value === null) {
             const status = ds.cohortStatus ? ds.cohortStatus[j] : null;
             if (status === "not_yet") {
-              label = "—";
-              color = "#3a3a4d";
+              label = "×";
+              color = ds.backgroundColor || COLORS.textMuted;
+              if (typeof color === "string" && color.length === 9) color = color.slice(0, 7);
             } else {
               label = "n<5";
               color = COLORS.textMuted;
@@ -570,9 +571,13 @@
                 <span class="m-label">Not flat</span>
                 <span class="m-value">${fmt(d.not_flat_pct)}</span>
               </div>
-              <div class="gen-metric" title="Avg folds per day · self-reported screen mix on a 1–10 scale (1 = mostly inner display, 10 = mostly outer display)">
-                <span class="m-label">Folds/day · outer lean</span>
-                <span class="m-value">${d.folds_per_day_avg ?? "—"} · ${d.screen_usage_avg != null ? d.screen_usage_avg + "/10" : "—"}</span>
+              <div class="gen-metric">
+                <span class="m-label">Folds / day</span>
+                <span class="m-value">${d.folds_per_day_avg ?? "—"}</span>
+              </div>
+              <div class="gen-metric" title="Self-reported scale: 1 = mostly inner (large) display, 10 = mostly outer (small) display">
+                <span class="m-label">Inner ↔ outer screen</span>
+                <span class="m-value">${d.screen_usage_avg != null ? d.screen_usage_avg + "/10" : "—"}</span>
               </div>
             </div>
           </article>
