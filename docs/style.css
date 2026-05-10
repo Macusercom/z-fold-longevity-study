@@ -220,6 +220,7 @@ body::before {
 }
 .btn.primary {
   background: var(--grad);
+  background-origin: border-box;
   color: #0a0a14;
   font-weight: 600;
   box-shadow: 0 12px 30px -10px rgba(34, 211, 238, 0.5);
