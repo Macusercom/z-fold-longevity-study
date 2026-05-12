@@ -202,7 +202,7 @@ Top-level keys consumed by the website:
 | `fold_habit` | Per folds-per-day bucket: `n`, `rma_pct`, `micro_cracks_pct`, `inner_break_pct` |
 | `usage_durability` | Per inner-vs-outer usage group: same shape as `fold_habit` |
 | `surface_by_age` | Per age bucket: `n` plus the share for each surface-condition label |
-| `flat_vs_cracks` &middot; `cracks_vs_break` &middot; `break_timing_pct` | Computed but **not currently consumed by `docs/app.js`** — kept in the JSON for transparency and possible future charts |
+| `distributions` &middot; `flat_vs_cracks` &middot; `cracks_vs_break` &middot; `break_timing_pct` | Computed but **not currently consumed by `docs/app.js`** — kept in the JSON for transparency and possible future charts |
 
 Adding a new field doesn't break the site. Removing one breaks the chart
 that consumes it — grep for the key in `docs/app.js` to confirm what
