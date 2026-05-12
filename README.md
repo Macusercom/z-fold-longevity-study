@@ -45,9 +45,13 @@ Opening `index.html` directly with `file://` won't work because the page fetches
 
 ## Regenerating the stats
 
-`docs/stats.json` is the aggregated data the page renders from. It is generated locally from the raw response CSV by an analysis script that applies the filters above and computes every per-generation, per-cohort and per-protector breakdown.
+`docs/stats.json` is the aggregated data the page renders from. It is generated from the raw response CSV at `docs/Samsung-Z-Fold-Questionnaire-2026.csv` by a single standard-library Python script:
 
-The raw CSV that drives the analysis is published alongside the site at [`docs/Samsung-Z-Fold-Questionnaire-2026.csv`](docs/Samsung-Z-Fold-Questionnaire-2026.csv) for transparency. The analysis script itself is kept locally and not committed to this repository.
+```bash
+python3 analysis/analyze.py
+```
+
+The full specification — filter rules, schema, what to update each year, and a manual reproduction recipe — lives at [`analysis/README.md`](analysis/README.md). Both files are checked in so anyone can audit and reproduce the published numbers from scratch.
 
 ## Source layout
 
@@ -62,6 +66,10 @@ docs/                                       Static site (GitHub Pages root)
   imprint.html                              Legal notice
   og-image.svg                              Social card
   sitemap.xml / robots.txt                  SEO
+
+analysis/                                   Reproducible stats pipeline
+  analyze.py                                Single-file aggregator (no deps)
+  README.md                                 Full rebuild specification
 ```
 
 ## Prior studies

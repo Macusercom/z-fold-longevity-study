@@ -60,13 +60,6 @@
       "37–48 months (3–4 years)": 3,
       "49-60 months (4–5 years)": 3
     },
-    "condition_raw": {
-      "Refurbished": 45,
-      "Factory new": 624,
-      "Used": 64,
-      "": 9,
-      "Damaged/broken": 3
-    },
     "outer_sp": {
       "3rd party": 276,
       "None": 197,
