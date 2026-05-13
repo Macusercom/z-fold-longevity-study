@@ -15,11 +15,6 @@ The pipeline is intentionally a single file. There are no dependencies
 beyond the Python standard library, and the input and output both live in
 `docs/` so anyone with the repo can reproduce every number on the site.
 
-> [!IMPORTANT]
-> If you ask an AI agent to refresh the stats from a newer CSV, point it at
-> this file. It is the exact specification for what filtering and aggregation
-> the site expects.
-
 ---
 
 ## 1. The one-command rebuild
@@ -305,27 +300,27 @@ has_cracks(row)        = row[11].startswith("Yes,")
 
 Before pushing:
 
-- [ ] `python3 analysis/analyze.py` exits cleanly and prints the expected
+- `python3 analysis/analyze.py` exits cleanly and prints the expected
       raw / cleaned / per-device counts
-- [ ] `docs/stats.json` is roughly 12 – 20 KB (not a few hundred bytes,
+- `docs/stats.json` is roughly 12 – 20 KB (not a few hundred bytes,
       which would mean the script errored silently)
-- [ ] Local preview works: `python3 -m http.server 8000 --directory docs`
-- [ ] Every metric in the year-by-year selector still renders bars
+- Local preview works: `python3 -m http.server 8000 --directory docs`
+- Every metric in the year-by-year selector still renders bars
       and/or `×` / `n<5` markers — no blank chart on any metric
-- [ ] The methodology "Excluded" count matches the sum of exclusion
+- The methodology "Excluded" count matches the sum of exclusion
       reasons the script printed
-- [ ] Hovering a 0 % bar still shows a tooltip with the sample size
-- [ ] On mobile width the hero phone stack still shows generations
+- Hovering a 0 % bar still shows a tooltip with the sample size
+- On mobile width the hero phone stack still shows generations
       3 / 4 / 5 / 6 / 7
 
 If a fresh generation was added this year, also confirm:
 
-- [ ] The new generation appears in the per-generation snapshot section
-- [ ] The cyan **NEWEST** badge moved to it (search
+- The new generation appears in the per-generation snapshot section
+- The cyan **NEWEST** badge moved to it (search
       `renderGenerationCards` in `docs/app.js`)
-- [ ] `COHORT_POSSIBLE` in `docs/app.js` includes the new generation
-- [ ] The hero phone stack updates to include the new generation
-- [ ] The age-cap warn callout above the per-gen grid still reads
+- `COHORT_POSSIBLE` in `docs/app.js` includes the new generation
+- The hero phone stack updates to include the new generation
+- The age-cap warn callout above the per-gen grid still reads
       correctly with the new caps
 
 ---
